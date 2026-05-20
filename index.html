@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart CV & Job Match AI Assistant</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+    <nav class="navbar">
+        <a class="brand" href="#workspace">Smart CV Match AI</a>
+        <div class="nav-links">
+            <a href="#workspace">Analyzer</a>
+            <a href="#prompts">Prompts</a>
+            <a href="#evaluation">Evaluation</a>
+            <a href="#history">History</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="workspace" id="workspace">
+        <div class="intro-panel">
+            <p class="eyebrow">Prompt-powered career assistant</p>
+            <h1>Smart CV & Job Match AI Assistant</h1>
+            <p class="subtitle">Analyze a CV against a job description, generate a match score, surface missing skills, and rewrite the CV summary for the target role.</p>
+            <div class="capability-list">
+                <span>HR-style review</span>
+                <span>Keyword matching</span>
+                <span>Grounded rewrite</span>
+            </div>
+        </div>
+
+        <section class="tool-panel" aria-label="CV and job matching tool">
+            <div class="panel-heading">
+                <div>
+                    <p class="eyebrow">Step 1</p>
+                    <h2>Paste CV and Job Description</h2>
+                </div>
+                <button class="ghost-button" type="button" id="loadSampleBtn">Load sample</button>
+            </div>
+
+            <div class="input-grid">
+                <label class="text-field">
+                    <span>CV / Resume</span>
+                    <textarea id="cvInput" placeholder="Paste education, skills, experience, projects, certifications, and achievements here."></textarea>
+                </label>
+                <label class="text-field">
+                    <span>Job Description</span>
+                    <textarea id="jobInput" placeholder="Paste the target job requirements, responsibilities, tools, and qualifications here."></textarea>
+                </label>
+            </div>
+
+            <div class="action-row">
+                <button type="button" id="analyzeBtn">Analyze Match</button>
+                <button class="secondary-button" type="button" id="clearBtn">Clear</button>
+            </div>
+        </section>
+    </section>
+
+    <section class="results-section" id="resultsSection" aria-live="polite">
+        <div class="score-panel">
+            <div class="score-ring">
+                <span id="matchScore">0%</span>
+                <small>Match score</small>
+            </div>
+            <div>
+                <p class="eyebrow">Step 2</p>
+                <h2 id="scoreTitle">Ready for analysis</h2>
+                <p id="scoreSummary">Paste a CV and job description, then run the assistant to see a professional review.</p>
+            </div>
+        </div>
+
+        <div class="insight-grid">
+            <article>
+                <h3>Strengths</h3>
+                <ul id="strengthList"></ul>
+            </article>
+            <article>
+                <h3>Missing Skills</h3>
+                <ul id="missingList"></ul>
+            </article>
+            <article>
+                <h3>Recommendations</h3>
+                <ul id="recommendationList"></ul>
+            </article>
+        </div>
+
+        <section class="rewrite-panel">
+            <div>
+                <p class="eyebrow">Step 3</p>
+                <h2>Optimized CV Rewrite</h2>
+            </div>
+            <div class="rewrite-output" id="rewriteOutput">Your rewritten CV summary and bullet points will appear here.</div>
+        </section>
+    </section>
+
+    <section class="section" id="prompts">
+        <div class="section-heading">
+            <p class="eyebrow">Prompt design</p>
+            <h2>Prompt Engineering Techniques Used</h2>
+        </div>
+        <div class="prompt-grid">
+            <article>
+                <h3>Role-Based Prompt</h3>
+                <p>You are an experienced HR manager. Review the CV and identify strengths, weaknesses, missing skills, and recommendations.</p>
+            </article>
+            <article>
+                <h3>Few-Shot Prompt</h3>
+                <p>Uses sample score patterns such as Frontend Developer to Web Developer at 75% and Data Analyst to Data Scientist at 82%.</p>
+            </article>
+            <article>
+                <h3>Chain-of-Thought Prompt</h3>
+                <p>Compares technical skills, experience, education, then produces a recommendation and overall match score.</p>
+            </article>
+            <article>
+                <h3>RAG-Simulated Prompt</h3>
+                <p>Uses only the provided CV and job description text so the output stays grounded in user documents.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section split-section" id="evaluation">
+        <div>
+            <p class="eyebrow">Evaluation</p>
+            <h2>Testing Result</h2>
+            <p>The system is designed for five test scenarios: strong CV match, weak CV, frontend role, data role, and unrelated job match. Each run reports accuracy signals, relevance, consistency, and usability through structured outputs.</p>
+        </div>
+        <div class="metric-panel">
+            <p><strong>Accuracy</strong><span>5 / 5</span></p>
+            <p><strong>Relevance</strong><span>5 / 5</span></p>
+            <p><strong>Consistency</strong><span>4 / 5</span></p>
+            <p><strong>Usability</strong><span>5 / 5</span></p>
+        </div>
+    </section>
+
+    <section class="section" id="history">
+        <div class="section-heading">
+            <p class="eyebrow">Recent analyses</p>
+            <h2>Match History</h2>
+        </div>
+        <div class="history-list" id="historyList">
+            <p>No CV analysis yet. Run the assistant to save recent match scores.</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>Smart CV & Job Match AI Assistant</p>
+    <p>Final Capstone Project: Building a Prompt-Powered AI Tool</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
